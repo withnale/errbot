@@ -646,7 +646,7 @@ class SlackBackend(ErrBot):
 
             msgtype = "direct" if msg.is_direct else "channel"
             log.debug('Sending %s message to %s (%s).', msgtype, to_humanreadable, to_channel_id)
-            body = self.md.convert(msg.body)
+            body = msg.body
             log.debug('Message size: %d.', len(body))
 
             limit = min(self.bot_config.MESSAGE_SIZE_LIMIT, SLACK_MESSAGE_LIMIT)
